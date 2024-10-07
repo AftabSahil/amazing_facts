@@ -1,0 +1,44 @@
+body{
+    background-color: #292524;
+}
+h1{
+    font-size: 40px;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: "Sixtyfour Convergence",sans-serif;
+    
+}
+button{
+    font-family: "Sixtyfour Convergence",sans-serif;
+}
+ul{
+    list-style: none;
+}
+.category{
+    text-transform: uppercase;
+    font-size: 15px;
+    font-family: "Sixtyfour Convergence",sans-serif;
+}
+.fact{
+    font-size: 25px;
+    font-family: "Sono";
+    color: whitesmoke;
+}
+img{
+    height: 150px;
+    width: 150px;
+    order: 0;
+    gap: 20px;
+}
+img,header{
+    align-items: center;
+    display: flex;
+
+}
+*, body{
+    margin: 0;
+}
+*{
+    padding: 0;
+    margin-bottom: 5px;
+}
