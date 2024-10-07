@@ -14,10 +14,13 @@
 </head>
 <body>
     <header>
-        <img src="./fact logo.png" alt="amazing facts logo">
-        <h1>AMAZING FACTS-By Shivansh</h1>
+        <div class="logo">
+            <img src="./fact logo.png" alt="amazing facts logo">
+            <h1>AMAZING FACTS</h1>
+        </div>
+        <button>Share</button>
     </header>
-    <form>
+    <form class="fact-form">
         <input type="text" placeholder="Share a Fact">
         <span>200</span>
         <input type="text" placeholder="Source">
@@ -30,17 +33,17 @@
         </select>
         <button>POST</button>
     </form>
-    <main>
-        <aside>
+    <main class="grid-container">
+        <aside class="category-list">
             <ul>
                 <li><button>All</button></li>
                 <li><button>Technology</button></li>
                 <li><button>Science</button></li>
             </ul>
         </aside>
-        <ul class="fact">
-            <li><p>A laser can get trapped in water <a href="https://www.rd.com/list/science-facts-never-learned/">Source</a></p>
-            <div>
+        <ul>
+            <li class="fact"><p>A laser can get trapped in water <a href="https://www.rd.com/list/science-facts-never-learned/">Source</a></p>
+            <div class="vote-button">
                 <button>👍</button>
                 <button>🤯</button>
                 <button>🥱</button>

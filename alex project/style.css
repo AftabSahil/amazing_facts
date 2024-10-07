@@ -1,5 +1,8 @@
 body{
+    margin: 0;
+    padding: 50px;
     background-color: #292524;
+    color: white;
 }
 h1{
     font-size: 40px;
@@ -23,22 +26,59 @@ ul{
     font-size: 25px;
     font-family: "Sono";
     color: whitesmoke;
+    margin: 0;
+    border-style: solid;
+    border-color: red;
+    border-width: 5px;
+    background-color: #44403c;
+    display: flex;
+    align-items: center;
+    gap: 25px;
 }
 img{
     height: 150px;
     width: 150px;
     order: 0;
-    gap: 20px;
+    
 }
-img,header{
+header{
     align-items: center;
     display: flex;
+    gap: 20px;
+    justify-content: space-between;
+}
 
-}
-*, body{
-    margin: 0;
-}
 *{
     padding: 0;
     margin-bottom: 5px;
+}
+.grid-container{
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    column-gap: 50px;
+}
+.category-list{
+    margin: 0;
+    border-style: solid;
+    border-color: red;
+    border-width: 5px;
+}
+.fact-form{
+    font-family: 'Sono';
+    background-color:  #44403c; 
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 50px;
+    padding:20px 40px;
+    border-radius: 20px;
+    text-align: center;
+}
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.vote-button{
+    margin-left: auto;
 }
