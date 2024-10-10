@@ -15,7 +15,7 @@ return (
         <span>200</span>
         <input type="text" placeholder="Trustworthy source..."/>
         <select>
-            <option value="">Choose category</option>"
+            <option value="">Choose categoryy</option>"
             <option value="technology">Technology</option>
             <option value="science">Science</option>
             <option value="finance">Finance</option>
