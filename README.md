@@ -30,7 +30,7 @@ I am going to make a Fact web app that increases general knowledge.
 
 # Tech Stack
 
-![Stack](https://github.com/AftabSahil/amazing_facts/blob/master/alex%20project/Stack.jpg)
+![Stack](https://github.com/AftabSahil/amazing_facts/blob/master/Stack.jpg)
 
 # Amazing Facts-Demo 
 ![Stack](https://github.com/AftabSahil/amazing_facts/blob/master/alex%20project/projectDemo.png)
