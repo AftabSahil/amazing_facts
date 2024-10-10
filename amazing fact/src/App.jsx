@@ -46,7 +46,7 @@ const CATEGORIES = [
   
   function App()//first component
   {
-    const appTitle="Fact learn today";
+    const appTitle="THE PLACE WHERE YOU LEARN SOMETHING NEW...";
     return (
       <>
       {/* HEADER */}
