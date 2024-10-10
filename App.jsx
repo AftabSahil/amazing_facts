@@ -68,25 +68,14 @@ const CATEGORIES = [
   );
   }
   
-  //sahil component
   function NewFactForm()
   {
-    return (
-      <form className="fact-form">
-          <input type="text" placeholder="Share a fact with the world" />
-          <input type="text" placeholder="Trustworthy source..." />
-          <select>
-              <option value="">Choose Category</option>
-          </select>
-          <button className="btn btn-large">Post</button>
-      </form>)
+    return <form className="fact-form">Fact Form</form>
   }
   function CategoryFilter()
   {
     return (<aside>CategoryFilter</aside>)
   }
-
-  //shivansh
   function FactList()
   {
     //lets create a variable 
@@ -99,7 +88,6 @@ const CATEGORIES = [
     </section>
     )
   }
-  //shivansh
   function Fact({fact})
   // {console.log(props);
   {
