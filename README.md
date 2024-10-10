@@ -33,6 +33,6 @@ I am going to make a Fact web app that increases general knowledge.
 ![Stack](https://github.com/AftabSahil/amazing_facts/blob/master/Stack.jpg)
 
 # Amazing Facts-Demo 
-![Stack](https://github.com/AftabSahil/amazing_facts/blob/master/alex%20project/projectDemo.png)
+![Stack](https://github.com/AftabSahil/amazing_facts/blob/master/projectDemo.png)
 
 
