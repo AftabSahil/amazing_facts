@@ -5,7 +5,7 @@ return (
   <div className="center-container">
         <header className="header1">
             <div className="Logo"> 
-                <img src="./fact logo.png" alt="logo"/>
+                <img src="/public/amazing.png" alt="logo"/>
                 <h1>Amazing Facts</h1>
             </div>
             <button className="btn btn-large">Share a fact</button>
@@ -36,6 +36,40 @@ return (
                         </li>
                     </ul>
                 </aside>
+                <section>
+                <ul>
+                    <li className="facts">
+                        <p>React is being developed by Meta (formerly facebook)<a class="source" href="https://opensource.fb.com/" target="_blank">(Source)</a></p>
+                        
+                        <span className="category" style={{backgroundColor:'#3b82f6'}}>Technology</span>
+                        <div className="vote-buttons">
+                            <button>👍24</button>
+                            <button>🤯9</button>
+                            <button>⛔️4</button>
+                        </div>
+                    </li>
+
+                    <li className="facts">
+                        <p style={{display: 'inline-block'}}>Millennial dads spend 3 times as much time with their kids than their fathers spent with them. In 1982, 43% of fathers had never changed a diaper. Today, that number is down to 3%</p>
+                        <span className="category" style={{backgroundColor:'#eab308'}}>society</span>
+                        <div className="vote-buttons">
+                            <button>👍10</button>
+                            <button>🤯2</button>
+                            <button>⛔️0</button>
+                        </div>
+                    </li>
+
+                    <li className="facts">
+                        <p>Lisbon is the capital of Portugal</p>
+                        <span className="category" style={{backgroundColor:'#eab308'}}>society</span>
+                        <div className="vote-buttons">
+                            <button>👍8</button>
+                            <button>🤯3</button>
+                            <button>⛔️1</button>
+                        </div>
+                    </li>
+                </ul>
+            </section>
                 
                 
         </main>
