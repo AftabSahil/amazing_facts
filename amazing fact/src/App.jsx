@@ -21,7 +21,17 @@ function App()//first component
 //factform 
 function FactForm()
 {
-    return(<h1>This is will be fact form component</h1>)
+    return(
+    <form>
+        <input type="text" placeholder="Share a fact with the world" />
+        <input type="text" placeholder="Trustworthy source..." />
+        <select>
+            <option value="">Choose Category</option>
+        </select>
+        <button className="btn btn-large">Post</button>
+    </form>
+    
+)
 }
 
 export default App;
