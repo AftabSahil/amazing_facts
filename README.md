@@ -30,3 +30,7 @@ I am going to make a Fact web app that increases general knowledge.
 #Tech Stack
 
 ![ReactJS](https://github.com/AftabSahil/amazing_facts/blob/master/alex%20project/reactJs.png)
+
+
+![Supabase](https://github.com/AftabSahil/amazing_facts/blob/master/alex%20project/supabase.jpg)
+
