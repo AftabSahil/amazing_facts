@@ -13,42 +13,71 @@
     <link href="https://fonts.googleapis.com/css2?family=Sixtyfour+Convergence&family=Sono:wght@200..800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <img src="./fact logo.png" alt="amazing facts logo">
-        <h1>AMAZING FACTS</h1>
-    </header>
-    <form>
-        <input type="text" placeholder="Share a Fact">
+    <div class="center-container">
+        <header class="header1">
+            <div class="Logo">
+                <!-- <img src="logo.png" style="height:60px;width:60px;"> -->
+                <img src="./fact logo.png">
+                <h1>Amazing Facts</h1>
+            </div>
+            <button class="btn btn-large">Share a fact</button>
+        </header>
+    <form class="fact-form">
+        <input type="text" placeholder="share a fact with the world"/>
         <span>200</span>
-        <input type="text" placeholder="Source">
-        <select class="category">
-            <option value="">Choose a category</option>
+        <input type="text" placeholder="Trustworthy source..."/>
+        <select>
+            <option value="">Choose category</option>"
             <option value="technology">Technology</option>
             <option value="science">Science</option>
-            <option value="entertainment">Entertainment</option>
             <option value="finance">Finance</option>
         </select>
-        <button>POST</button>
+        <button class="btn btn-large">Post</button>
     </form>
-    <main>
-        <aside>
-            <ul>
-                <li><button>All</button></li>
-                <li><button>Technology</button></li>
-                <li><button>Science</button></li>
-            </ul>
-        </aside>
-        <ul class="fact">
-            <li><p>A laser can get trapped in water <a href="https://www.rd.com/list/science-facts-never-learned/">Source</a></p>
-            <div>
-                <button>👍</button>
-                <button>🤯</button>
-                <button>🥱</button>
-            </div>
-            
-            </li>
-            <li></li>
-        </ul>
-    </main>
+        <main class="grid-container">
+            <aside>
+                    <ul>
+                        <li class="category-list"><button class="btn btn-all-categories">All</button></li>
+                        <li class="category-list"><button class="btn btn-category" style="background-color:#3b82f6;">Technology</button></li>
+                        <li class="category-list"><button class="btn btn-category" style="background-color:#16a34a;">Science</button></li>
+                    </ul>
+                </aside>
+                <section>
+                <ul>
+                    <li class="facts">
+                        <p>React is being developed by Meta (formerly facebook)<a class="source" href="https://opensource.fb.com/" target="_blank">(Source)</a></p>
+                        <!-- Since we have to make 3 flex item inside our main section which is fact ie our paragraph tag ,like buttons and genre 
+                        so to make 3 flex item according to goad site lets take span tag out  -->
+                        <span class="category" style="background-color:#3b82f6;">Technology</span>
+                        <div class="vote-buttons">
+                            <button>👍24</button>
+                            <button>🤯9</button>
+                            <button>⛔️4</button>
+                        </div>
+                    </li>
+
+                    <li class="facts">
+                        <p style="display: inline-block;">Millennial dads spend 3 times as much time with their kids than their fathers spent with them. In 1982, 43% of fathers had never changed a diaper. Today, that number is down to 3%</p>
+                        <span class="category" style="background-color:#eab308;">society</span>
+                        <div class="vote-buttons">
+                            <button>👍12</button>
+                            <button>🤯2</button>
+                            <button>⛔️0</button>
+                        </div>
+                    </li>
+
+                    <li class="facts">
+                        <p>Lisbon is the capital of Portugal</p>
+                        <span class="category" style="background-color:#eab308;">society</span>
+                        <div class="vote-buttons">
+                            <button>👍8</button>
+                            <button>🤯3</button>
+                            <button>⛔️1</button>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+        </main>
+    </div>
 </body>
 </html>
