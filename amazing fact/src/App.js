@@ -53,7 +53,7 @@ function Header({showForm,setForm})
     <header className="header1">
       <div className="Logo">
           <img src="logo.png" alt="Fact-learn-today"/>
-          <h1>Facts-Learn-Todayyy</h1>
+          <h1>Amazing Facts</h1>
       </div>
       <button className="btn btn-large btn-open" onClick={()=>setForm(!showForm)}>
         Share a fact
