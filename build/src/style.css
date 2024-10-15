@@ -214,7 +214,8 @@ ul {
 
     .header1 {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center; /* Center logo and header on mobile */
+        text-align: center; /* Center text */
     }
 
     .grid-container {
@@ -222,7 +223,11 @@ ul {
     }
 
     h1 {
-        font-size: 36px;
+        font-size: 36px; /* Adjust h1 size for mobile */
+    }
+
+    .Logo {
+        justify-content: center; /* Center logo */
     }
 
     .fact-form {
@@ -236,14 +241,19 @@ ul {
     }
 
     .vote-buttons {
-        flex-direction: column; /* Stack buttons */
-        gap: 10px;
+        justify-content: center; /* Center buttons on mobile */
+        margin-left: 0; /* Remove left margin */
+        width: 100%; /* Ensure buttons take full width */
+    }
+
+    .vote-buttons button {
+        flex: 1; /* Allow buttons to grow equally */
     }
 }
 
 @media (max-width: 480px) {
     h1 {
-        font-size: 28px;
+        font-size: 28px; /* Smaller font size for mobile */
     }
 
     .Logo img {
