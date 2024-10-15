@@ -55,6 +55,10 @@ h1 {
 .category-list {
     margin-bottom: 16px;
     color: white;
+    display: flex;
+    justify-content: center; /* Center categories */
+    flex-wrap: wrap; /* Allow wrapping */
+    gap: 10px; /* Space between categories */
 }
 
 .facts {
@@ -64,7 +68,8 @@ h1 {
     margin-bottom: 20px;
     padding: 16px;
     display: flex;
-    align-items: center;
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: flex-start; /* Align to the start */
     gap: 20px;
     letter-spacing: -1px;
     color: #8b61c2;
@@ -82,8 +87,7 @@ ul {
     text-transform: uppercase;
     font-size: 15px;
     font-family: "Silkscreen", sans-serif;
-    padding: 3px 10px 0 10px;
-    margin-left: 1px;
+    padding: 3px 10px;
     border-radius: 100px;
     cursor: pointer;
     font-weight: 700;
@@ -171,6 +175,7 @@ ul {
     background-image: none;
 }
 
+/* Adding style to form */
 .fact-form input,
 .fact-form select {
     width: 220px;
@@ -213,7 +218,7 @@ ul {
     }
 
     .header1 {
-        flex-direction: column;
+        flex-direction: column; /* Stack header items */
         align-items: center; /* Center logo and header on mobile */
         text-align: center; /* Center text */
     }
@@ -224,6 +229,7 @@ ul {
 
     h1 {
         font-size: 36px; /* Adjust h1 size for mobile */
+        margin: 0; /* Remove margins for better centering */
     }
 
     .Logo {
@@ -233,11 +239,16 @@ ul {
     .fact-form {
         flex-direction: column; /* Stack form items */
         align-items: stretch;
+        gap: 20px; /* Add spacing between items */
     }
 
     .fact-form input,
     .fact-form select {
         width: 100%; /* Full width for inputs */
+    }
+
+    .category-list {
+        margin-bottom: 20px; /* More space below on mobile */
     }
 
     .vote-buttons {
@@ -246,8 +257,8 @@ ul {
         width: 100%; /* Ensure buttons take full width */
     }
 
-    .vote-buttons button {
-        flex: 1; /* Allow buttons to grow equally */
+    .facts {
+        align-items: center; /* Center facts content */
     }
 }
 
@@ -270,5 +281,9 @@ ul {
     .btn-large {
         font-size: 16px; /* Smaller button text */
         padding: 12px 0;
+    }
+
+    .vote-buttons button {
+        flex: 1; /* Ensure buttons can grow */
     }
 }
