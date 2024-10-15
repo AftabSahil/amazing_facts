@@ -1,0 +1,289 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: white;
+    color: white;
+    font-family: "Sono", sans-serif;
+    padding: 50px 65px;
+}
+
+.header1 {
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
+}
+
+.Logo {
+    order: 0;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.Logo img {
+    width: 200px;
+    height: 200px;
+}
+
+h1 {
+    font-size: 45px;
+    text-transform: uppercase;
+    font-family: "Orbitron", sans-serif;
+    color: #8b61c2;
+    line-height: 1;
+    margin-top: 8px;
+    margin-left: 10px;
+    font-weight: 900;
+    text-decoration: underline;
+}
+
+.fact-form {
+    background-color: #D7BDE2;
+    margin-bottom: 40px;
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border-radius: 100px;
+}
+
+.category-list {
+    margin-bottom: 16px;
+    color: white;
+    display: flex;
+    justify-content: center; /* Center categories */
+    flex-wrap: wrap; /* Allow wrapping */
+    gap: 10px; /* Space between categories */
+}
+
+.facts {
+    font-size: 19px;
+    line-height: 1.1;
+    background-color: #E6E6FA;
+    margin-bottom: 20px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: flex-start; /* Align to the start */
+    gap: 20px;
+    letter-spacing: -1px;
+    color: #8b61c2;
+}
+
+button {
+    font-family: 'Coiny';
+}
+
+ul {
+    list-style: none;
+}
+
+.category {
+    text-transform: uppercase;
+    font-size: 15px;
+    font-family: "Silkscreen", sans-serif;
+    padding: 3px 10px;
+    border-radius: 100px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.vote-buttons {
+    flex-shrink: 0;
+    margin-left: auto;
+    display: flex;
+    gap: 8px;
+}
+
+.vote-buttons button {
+    background-color: white;
+    border: none;
+    font-size: 18px;
+    padding: 6px 11px;
+    border-radius: 100px;
+    color: inherit;
+    font-weight: 200;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.vote-buttons button:hover {
+    transform: scale(120%);
+    background-color: #afdcff;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    column-gap: 50px;
+}
+
+.center-container {
+    max-width: 1499px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.source:link,
+.source:visited {
+    color: #3b82fc;
+    text-decoration: none;
+    margin-left: 15px;
+    transition: 2s;
+}
+
+.source:hover,
+.source:active {
+    color: black;
+}
+
+.btn {
+    border: none;
+    font-family: "Silkscreen", sans-serif;
+    line-height: 1;
+    text-transform: uppercase;
+    font-size: 18px;
+    padding: 17px 0 13px;
+    background-image: linear-gradient(135deg, #9B59B6, #8E44AD, #732D91, #D7BDE2);
+    color: inherit;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.btn:hover {
+    transform: scale(115%) rotate(-2deg);
+}
+
+.btn-large {
+    font-size: 20px;
+    padding: 20px 32px 17px;
+}
+
+.btn-all-categories {
+    margin-bottom: 16px;
+    width: 100%;
+}
+
+.btn-category {
+    width: 100%;
+    background-image: none;
+}
+
+/* Adding style to form */
+.fact-form input,
+.fact-form select {
+    width: 220px;
+    background-color: white;
+    border: none;
+    border-radius: 100px;
+    padding: 16px;
+    font-size: 18px;
+    color: black;
+    font-family: inherit;
+}
+
+.fact-form select:hover {
+    background-color: #484645;   
+    transform: scale(90%);
+}
+
+.fact-form input::placeholder {
+    color: #8b61c2;
+}
+
+.fact-form input:first-child {
+    flex-grow: 1;
+}
+
+.fact-form span {
+    font-weight: 400;
+    font-size: 18px;
+    margin-right: 18px;
+}
+
+.dropdown-menu {
+    background-color: white;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    body {
+        padding: 20px;
+    }
+
+    .header1 {
+        flex-direction: column; /* Stack header items */
+        align-items: center; /* Center logo and header on mobile */
+        text-align: center; /* Center text */
+    }
+
+    .grid-container {
+        grid-template-columns: 1fr; /* Stack columns */
+    }
+
+    h1 {
+        font-size: 36px; /* Adjust h1 size for mobile */
+        margin: 0; /* Remove margins for better centering */
+    }
+
+    .Logo {
+        justify-content: center; /* Center logo */
+    }
+
+    .fact-form {
+        flex-direction: column; /* Stack form items */
+        align-items: stretch;
+        gap: 20px; /* Add spacing between items */
+    }
+
+    .fact-form input,
+    .fact-form select {
+        width: 100%; /* Full width for inputs */
+    }
+
+    .category-list {
+        margin-bottom: 20px; /* More space below on mobile */
+    }
+
+    .vote-buttons {
+        justify-content: center; /* Center buttons on mobile */
+        margin-left: 0; /* Remove left margin */
+        width: 100%; /* Ensure buttons take full width */
+    }
+
+    .facts {
+        align-items: center; /* Center facts content */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 28px; /* Smaller font size for mobile */
+    }
+
+    .Logo img {
+        width: 150px; /* Smaller logo */
+        height: 150px;
+    }
+
+    .fact-form input,
+    .fact-form select {
+        padding: 12px; /* Smaller padding */
+    }
+
+    .btn,
+    .btn-large {
+        font-size: 16px; /* Smaller button text */
+        padding: 12px 0;
+    }
+
+    .vote-buttons button {
+        flex: 1; /* Ensure buttons can grow */
+    }
+}
