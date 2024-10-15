@@ -6,7 +6,7 @@
 }
 body
 {
-    background-color: #292524;
+    background-color: white;
     color : white;
     font-family:"Sono",sans-serif;
     padding: 50px 65px;
@@ -32,10 +32,9 @@ body
 /* decendent selector */
 .Logo img
 {
-    /* width:200px;
-    height: 200px; */
-    width: 170px;
-    height:170px;
+    width:200px;
+    height: 200px;
+   
 }
 h1
 {
@@ -43,7 +42,7 @@ h1
     text-transform: uppercase;
     /* text-align: center; */
     font-family: "Orbitron", sans-serif;
-    color:white;
+    color:#8b61c2;
     /* background-color: red; */
     /* display: inline-block; */
     line-height:1;
@@ -54,7 +53,7 @@ h1
 }
 .fact-form
 {
-    background-color: #44403c;
+    background-color: #D7BDE2;
     margin-bottom: 40px;
     padding:16px 32px;
     /* text-align: center; */
@@ -75,13 +74,14 @@ h1
 {
     font-size: 19px;
     line-height: 1.1;
-    background-color: #44403c;
+    background-color: #E6E6FA;
     margin-bottom:20px;
     padding:16px;
     display: flex;
     align-items:center;
     gap:20px;
     letter-spacing:-1px;
+    color: #8b61c2;
 }
 
 button
@@ -111,7 +111,7 @@ ul{
     gap: 8px;
 }
 .vote-buttons button {
-    background-color: #78716c;
+    background-color: white;
     border:none;
     font-size: 18px;
     padding: 6px 11px;
@@ -125,7 +125,7 @@ ul{
 .vote-buttons button:hover
 {
     transform: scale(120%);
-    background-color: #292524;
+    background-color: #8b61c2;
 }
 .grid-container
 {
@@ -142,14 +142,14 @@ ul{
 }
 .source:link,.source:visited
 {
-    color: #a8a29e;
+    color: #3b82fc;
     text-decoration:none;
     margin-left:15px;
     transition:2s;
 }
 .source:hover,.source:active
 {
-    color:#3b82fc;
+    color:black;
 }
 .btn 
 {
@@ -159,7 +159,8 @@ ul{
     text-transform: uppercase;
     font-size:18px;
     padding:17px 0 13px;
-    background-image:linear-gradient(135deg,#3b82f6,rgb(240, 168, 24),#ef4444,#16a34a,#eab308);
+    background-image: linear-gradient(135deg, #9B59B6, #8E44AD, #732D91, #D7BDE2);
+
     color:inherit;
 
     border-radius:100px;
@@ -191,12 +192,12 @@ ul{
 .fact-form input,.fact-form select
 {
     width:220px;
-    background-color:#78716c;
+    background-color:white;
     border: none;
     border-radius:100px;
     padding: 16px;;
     font-size:18px;
-    color:white;
+    color:black;
     font-family:inherit;
 }
 .fact-form select:hover
@@ -207,7 +208,7 @@ ul{
 /* :: is a sudo element */
 .fact-form input::placeholder
 {
-    color:#a8a29e;
+    color:#8b61c2;
 
 }
 /* Now after changing the display property to flex and changing width of input place holder also  
@@ -226,6 +227,6 @@ another sudo class first child which will select the first input tag*/
     margin-right: 18px;
 }
 .dropdown-menu{
-    background-color:#292524;
+    background-color:white;
    
 }
