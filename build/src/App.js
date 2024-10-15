@@ -155,7 +155,7 @@ function CategoryFilter({setCurrentCategory})
   </button>
       <ul className="dropdown-menu">
         <li className="category-list">
-          <button className="btn btn-all-categories" onClick={()=>setCurrentCategory("all")}>
+          <button className="btn all btn-all-categories" onClick={()=>setCurrentCategory("all")}>
             All
           </button>
         </li>
