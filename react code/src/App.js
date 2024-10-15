@@ -63,7 +63,7 @@ function Header({setForm,showForm})
     <header className="header1">
     <div className="Logo">
       <img src="logo.png" alt="Fact-learn-today logo"/>
-      <h1>Amazing Facts</h1>
+      <h1>amazing facts</h1>
     </div> 
     <button className="btn btn-large btn-open" onClick={()=>setForm(!showForm)}>
       Share a fact
@@ -192,38 +192,89 @@ function Factslist({facts,setFacts})
     </section>
     )
 }
-function Fact({fact,setFacts})
-{
-  const [isUpdate,setIsUpdate]=useState(false);
-  const isDisputed=fact.votesInteresting+fact.votesMindblowing<fact.votesFalse;
-  async function handleVote(columnName)
-  {
-    setIsUpdate(true);
-    const {data:updatedFact,error}=await supabase.from("facts").update({[columnName]:fact[columnName]+1}).eq("id",fact.id).select();
+function Fact({ fact, setFacts })
+ {
+  const [isUpdate, setIsUpdate] = useState(false);
+  const [userVote, setUserVote] = useState(null); // Track the user's vote
+  const isDisputed = fact.votesInteresting + fact.votesMindblowing < fact.votesFalse;
 
-    console.log(updatedFact)
+  async function handleVote(columnName) {
+    setIsUpdate(true);
+    let newVoteCount = fact[columnName] + 1;
+
+    if (userVote === columnName) {
+      // Undo vote if the user clicks the same button again
+      newVoteCount -= 1;
+      setUserVote(null); // Reset user vote
+    } else {
+      // Set user vote to the new one
+      setUserVote(columnName);
+    }
+
+    const { data: updatedFact, error } = await supabase
+      .from("facts")
+      .update({ [columnName]: newVoteCount })
+      .eq("id", fact.id)
+      .select();
+
     setIsUpdate(false);
-    if(!error)
-    {
-      setFacts((facts)=>facts.map((f)=>(f.id===fact.id?updatedFact[0]:f)));
+
+    if (!error) {
+      // Check if the updated column is votesFalse
+      if (columnName === "votesFalse" && updatedFact[0].votesFalse >= 100) {
+        // Delete the fact from Supabase
+        const { error: deleteError } = await supabase
+          .from("facts")
+          .delete()
+          .eq("id", fact.id);
+
+        if (!deleteError) {
+          // Remove the fact from the state
+          setFacts((facts) => facts.filter((f) => f.id !== fact.id));
+        } else {
+          console.error("Error deleting fact:", deleteError);
+        }
+      } else {
+        // Update the state for the normal vote counts
+        setFacts((facts) => facts.map((f) => (f.id === fact.id ? updatedFact[0] : f)));
+      }
     }
   }
+
   return (
     <li className="facts">
-    <p>
-      {isDisputed?<span className="disputed">[❌DISPUTED]</span>:null}
-      {fact.text}<a className="source" href={fact.source} target="_blank" rel="noreferrer">(Source)</a></p>
-    {/* <span className="category" style={{backgroundColor:CATEGORIES.find((cat)=>cat.name===fact.category).color}}>{fact.category}</span>  */}
+      <p>
+        {isDisputed ? <span className="disputed">[❌DISPUTED]</span> : null}
+        {fact.text}<a className="source" href={fact.source} target="_blank" rel="noreferrer">(Source)</a>
+      </p>
 
- 
       <div className="vote-buttons">
-        <button onClick={()=>handleVote("votesInteresting")} disabled={isUpdate}>👍{fact.votesInteresting}</button>
-        <button onClick={()=>handleVote("votesMindblowing")} disabled={isUpdate}>🤯{fact.votesMindblowing}</button>
-        <button onClick={()=>handleVote("votesFalse")} disabled={isUpdate}>⛔️{fact.votesFalse}</button> 
+        <button
+          onClick={() => handleVote("votesInteresting")}
+          disabled={isUpdate}
+          style={{ fontWeight: userVote === "votesInteresting" ? "bold" : "normal" }}
+        >
+          👍 {fact.votesInteresting}
+        </button>
+        <button
+          onClick={() => handleVote("votesMindblowing")}
+          disabled={isUpdate || userVote === "votesFalse"} // Disable if user has disliked
+          style={{ fontWeight: userVote === "votesMindblowing" ? "bold" : "normal" }}
+        >
+          🤯 {fact.votesMindblowing}
+        </button>
+        <button
+          onClick={() => handleVote("votesFalse")}
+          disabled={isUpdate}
+          style={{ fontWeight: userVote === "votesFalse" ? "bold" : "normal" }}
+        >
+          ⛔️ {fact.votesFalse}
+        </button>
       </div>
     </li>
-    )
+  );
 }
+
 export default App;
 
 
