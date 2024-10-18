@@ -34,5 +34,5 @@ I am going to make a Fact web app that increases general knowledge.
 
 # Amazing Facts-Demo 
 ![Stack](https://github.com/AftabSahil/amazing_facts/blob/master/projectDemo.png)
-https://shivanshkumar760.github.io/amazing_facts/
+https://amazing-facts-v1.netlify.app
 
