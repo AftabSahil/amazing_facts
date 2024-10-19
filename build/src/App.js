@@ -2,6 +2,7 @@ import './style.css'
 import {useEffect, useState} from 'react'
 import supabase from './supabase';
 function App() {
+  const [isDarkMode, setIsDarkMode] = useState(false);
   const [showForm,setForm]=useState(false);
   // const [facts,setFacts]=useState(initialFacts);
   const [facts,setFacts]=useState([]);
@@ -44,12 +45,16 @@ function App() {
     {/* {showForm?<NewFactForm facts={facts} setFacts={setFacts} setForm={setForm}/>:null} */}
     {showForm?<NewFactForm facts={facts} setFacts={setFacts} setForm={setForm}/>:null}
     <main className="grid-container">
+      <div>
       {/* passing the setCurrentCategory state function as a prop to CategoryFilter component */}
+        <ThemeToggle isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode}/>
         <CategoryFilter setCurrentCategory={setCurrentCategory}/>
-        {isLoading ? <Loader/>:<Factslist facts={facts} setFacts={setFacts}/>}
+        </div>
+        {isLoading ? <Loader/>:<Factslist facts={facts} setFacts={setFacts} isDarkMode={isDarkMode}/>}
         
         {/* <Factslist facts={facts}/> */}
     </main>
+   
     </>
     )
 }
@@ -63,7 +68,7 @@ function Header({setForm,showForm})
     <header className="header1">
     <div className="Logo">
       <img src="logo.png" alt="Fact-learn-today logo"/>
-      <h1>amazing facts</h1>
+      <h1>Amazing Facts</h1>
     </div> 
     <button className="btn btn-large btn-open" onClick={()=>setForm(!showForm)}>
       Share a fact
@@ -155,7 +160,7 @@ function CategoryFilter({setCurrentCategory})
   </button>
       <ul className="dropdown-menu">
         <li className="category-list">
-          <button className="btn btn-all-categories" onClick={()=>setCurrentCategory("all")}>
+          <button className="btn all btn-all-categories" onClick={()=>setCurrentCategory("all")}>
             All
           </button>
         </li>
@@ -174,7 +179,7 @@ function CategoryFilter({setCurrentCategory})
     </aside>
     );
 }
-function Factslist({facts,setFacts})
+function Factslist({facts,setFacts,isDarkMode})
 {
   if(facts.length===0)
   {
@@ -185,17 +190,65 @@ function Factslist({facts,setFacts})
     <section>
       <ul className="facts-list">
         {facts.map(
-          (facts)=><Fact key={facts.id} fact={facts} setFacts={setFacts}/>
+          (facts)=><Fact key={facts.id} fact={facts} setFacts={setFacts} isDarkMode={isDarkMode}/>
           )
         }
       </ul>
     </section>
     )
 }
-function Fact({ fact, setFacts })
+function ThemeToggle({isDarkMode,setIsDarkMode}){
+  // const [isDarkMode, setIsDarkMode] = useState(false);
+
+  // Check the user's preference from local storage or default to light mode
+  useEffect(() => {
+      const savedMode = localStorage.getItem('dark-mode');
+      if (savedMode === 'true') {
+          setIsDarkMode(true);
+          document.body.classList.add('dark-mode');
+          // const images = document.getElementsByClassName('theme-image');
+          // document.getElementsByClassName("Logo")[0].classList.add('dark-mode');
+          let factCollector=document.getElementsByClassName("facts");
+          console.log(factCollector);
+          for (let i=0;i<factCollector.length;i++){
+            
+            factCollector[i].classList.add('dark-mode');
+            console.log(factCollector[i]);
+          }
+      } else {
+          document.body.classList.remove('dark-mode');
+          // document.getElementsByClassName("Logo")[0].classList.remove('dark-mode');
+          let factCollector=document.getElementsByClassName("facts");
+          for (let i=0;i<factCollector.length;i++){
+            factCollector[i].classList.remove('dark-mode');
+          }
+      }
+  }, []);
+
+  const toggleTheme = () => {
+      setIsDarkMode(!isDarkMode);
+      document.body.classList.toggle('dark-mode');
+      localStorage.setItem('dark-mode', !isDarkMode);
+  };
+
+  return (
+      <div>
+          <button className="btn toggler-mode" onClick={toggleTheme}>
+              {isDarkMode ? '💡 Mode' : '🌑  Mode'}-toggle
+          </button>
+          {/* <Fact isDarkMode={isDarkMode} /> */}
+          {/* {facts.map(
+          (facts)=><Fact key={facts.id} fact={facts} setFacts={setFacts} isDarkMode={isDarkMode}/>
+          )
+        } */}
+      </div>
+  );
+};
+function Fact({ fact, setFacts,isDarkMode })
  {
   const [isUpdate, setIsUpdate] = useState(false);
   const [userVote, setUserVote] = useState(null); // Track the user's vote
+  console.log(fact.votesInteresting);
   const isDisputed = fact.votesInteresting + fact.votesMindblowing < fact.votesFalse;
 
   async function handleVote(columnName) {
@@ -242,7 +295,7 @@ function Fact({ fact, setFacts })
   }
 
   return (
-    <li className="facts">
+    <li className={`facts ${isDarkMode ? 'dark-mode' : ''}`}>
       <p>
         {isDisputed ? <span className="disputed">[❌DISPUTED]</span> : null}
         {fact.text}<a className="source" href={fact.source} target="_blank" rel="noreferrer">(Source)</a>
@@ -274,6 +327,9 @@ function Fact({ fact, setFacts })
     </li>
   );
 }
+
+
+
 
 export default App;
 
