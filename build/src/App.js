@@ -207,23 +207,15 @@ function ThemeToggle({isDarkMode,setIsDarkMode}){
           setIsDarkMode(true);
           document.body.classList.add('dark-mode');
           // const images = document.getElementsByClassName('theme-image');
-          // document.getElementsByClassName("Logo")[0].classList.add('dark-mode');
-          let factCollector=document.getElementsByClassName("facts");
-          console.log(factCollector);
-          for (let i=0;i<factCollector.length;i++){
-            
-            factCollector[i].classList.add('dark-mode');
-            console.log(factCollector[i]);
-          }
-      } else {
+          // document.getElementsByClassName("Logo")[0].classList.add('dark-mode')
+          
+      }
+      else {
           document.body.classList.remove('dark-mode');
           // document.getElementsByClassName("Logo")[0].classList.remove('dark-mode');
-          let factCollector=document.getElementsByClassName("facts");
-          for (let i=0;i<factCollector.length;i++){
-            factCollector[i].classList.remove('dark-mode');
-          }
+         
       }
-  }, []);
+  }, [setIsDarkMode]);
 
   const toggleTheme = () => {
       setIsDarkMode(!isDarkMode);
