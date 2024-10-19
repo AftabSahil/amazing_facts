@@ -18,7 +18,12 @@ body.dark-mode {
     color: #ffffff; /* Light text color */
     
 }
-
+.toggler-mode{
+    padding: 100px;
+    margin-bottom: 20px;
+    border: none;
+    cursor: pointer;
+}
 
 .header1 {
     margin-bottom: 40px;
@@ -36,19 +41,16 @@ body.dark-mode {
 }
 
 .Logo img {
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
 }
 
-.Logo img.dark-mode{
-    mix-blend-mode: color-burn;
-}
 
 h1 {
     font-size: 45px;
     text-transform: uppercase;
-    font-family: "Orbitron", sans-serif;
-    color: #8b61c2;
+    font-family: "playwrite gb s", sans-serif;
+    color: rgb(107, 77, 77);
     line-height: 1;
     margin-top: 8px;
     margin-left: 10px;
@@ -67,6 +69,7 @@ h1 {
 }
 
 .category-list {
+    margin-top: 20px;
     margin-bottom: 16px;
     color: white;
     display: flex;
@@ -88,7 +91,10 @@ h1 {
     letter-spacing: -1px;
     color: #8b61c2;
 }
-
+li.dark-mode{
+    background-color: #292524;;
+    color: red;
+}
 button {
     font-family: 'Coiny';
 }
@@ -165,7 +171,9 @@ ul {
     text-transform: uppercase;
     font-size: 18px;
     padding: 17px 0 13px;
-    background-image: linear-gradient(135deg, #9B59B6, #8E44AD, #732D91, #D7BDE2);
+    /* background-image: linear-gradient(135deg, #9B59B6, #8E44AD, #732D91, #D7BDE2);
+     */
+     background-image:linear-gradient(135deg,#3b82f6,rgb(240, 168, 24),#ef4444,#16a34a,#eab308);
     color: inherit;
     border-radius: 100px;
     cursor: pointer;
