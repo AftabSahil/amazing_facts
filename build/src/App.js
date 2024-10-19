@@ -50,6 +50,7 @@ function App() {
         
         {/* <Factslist facts={facts}/> */}
     </main>
+    <ThemeToggle/>
     </>
     )
 }
@@ -273,6 +274,39 @@ function Fact({ fact, setFacts })
     </li>
   );
 }
+
+const ThemeToggle = () => {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  // Check the user's preference from local storage or default to light mode
+  useEffect(() => {
+      const savedMode = localStorage.getItem('dark-mode');
+      if (savedMode === 'true') {
+          setIsDarkMode(true);
+          document.body.classList.add('dark-mode');
+          // const images = document.getElementsByClassName('theme-image');
+          document.getElementsByClassName("Logo")[0].classList.add('dark-mode');
+      } else {
+          document.body.classList.remove('dark-mode');
+          document.getElementsByClassName("Logo")[0].classList.remove('dark-mode');
+      }
+  }, []);
+
+  const toggleTheme = () => {
+      setIsDarkMode(!isDarkMode);
+      document.body.classList.toggle('dark-mode');
+      localStorage.setItem('dark-mode', !isDarkMode);
+  };
+
+  return (
+      <div>
+          <button onClick={toggleTheme}>
+              Switch to {isDarkMode ? 'Light' : 'Dark'} Mode
+          </button>
+      </div>
+  );
+};
+
 
 export default App;
 
