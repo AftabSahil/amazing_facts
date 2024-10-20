@@ -43,12 +43,12 @@ function App() {
     <>
     <Header setForm={setForm} showForm={showForm}/>
     {/* {showForm?<NewFactForm facts={facts} setFacts={setFacts} setForm={setForm}/>:null} */}
-    {showForm?<NewFactForm facts={facts} setFacts={setFacts} setForm={setForm}/>:null}
+    {showForm?<NewFactForm facts={facts} setFacts={setFacts} setForm={setForm} isDarkMode={isDarkMode}/>:null}
     <main className="grid-container">
       <div>
       {/* passing the setCurrentCategory state function as a prop to CategoryFilter component */}
         <ThemeToggle isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode}/>
-        <CategoryFilter setCurrentCategory={setCurrentCategory}/>
+        <CategoryFilter setCurrentCategory={setCurrentCategory} isDarkMode={isDarkMode}/>
         </div>
         {isLoading ? <Loader/>:<Factslist facts={facts} setFacts={setFacts} isDarkMode={isDarkMode}/>}
         
@@ -70,7 +70,7 @@ function Header({setForm,showForm})
       <img src="logo.png" alt="Fact-learn-today logo"/>
       <h1>Amazing Facts</h1>
     </div> 
-    <button className="btn btn-large btn-open" onClick={()=>setForm(!showForm)}>
+    <button className="button-54 btn-large btn-open" onClick={()=>setForm(!showForm)}>
       Share a fact
     </button>
   </header>
@@ -93,7 +93,7 @@ function isValidUrl(string)
   catch(_){return false;}
   return url.protocol==="http:"||url.protocol==="https:"
 }
- function NewFactForm({setFacts,setForm})
+ function NewFactForm({setFacts,setForm,isDarkMode})
 {
   const [text,setText]=useState("");
   const textLength=text.length;
@@ -127,7 +127,7 @@ function isValidUrl(string)
     
   }
   return (
-    <form className="fact-form" onSubmit={(handleSubmit)}>
+    <form className={`fact-form  ${isDarkMode ? 'dark-mode' : ''}`} onSubmit={(handleSubmit)}>
        <input type="text" placeholder="share a fact with the world" value={text}  
        onChange={(e)=>setText(e.target.value)} disabled={isUploading}/>
 
@@ -146,21 +146,21 @@ function isValidUrl(string)
                 </option>)
             }
         </select>
-        <button className="btn btn-large" disabled={isUploading}>Post</button>
+        <button className="btn button-56 btn-large" disabled={isUploading}>Post</button>
     </form>
   )
 }
 
-function CategoryFilter({setCurrentCategory})
+function CategoryFilter({setCurrentCategory,isDarkMode})
 {
   return (
     <aside className="dropdown-center droper">
-      <button className="btn dropdown-toggle drop-btn " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <button className="btn button-85 dropdown-toggle drop-btn " type="button" data-bs-toggle="dropdown" aria-expanded="false">
     CategoryFilter
   </button>
-      <ul className="dropdown-menu">
+      <ul className={`dropdown-menu ${isDarkMode ? 'dark-mode' : ''}`}>
         <li className="category-list">
-          <button className="btn all btn-all-categories" onClick={()=>setCurrentCategory("all")}>
+          <button className="btn button-86" onClick={()=>setCurrentCategory("all")}>
             All
           </button>
         </li>
@@ -168,7 +168,7 @@ function CategoryFilter({setCurrentCategory})
           CATEGORIES.map(
             (cat)=>
             <li className="category-list" key={cat.name}>
-              <button className="btn btn-category" style={{backgroundColor:cat.color}} onClick={()=>setCurrentCategory(cat.name)}>
+              <button className="btn button-86" onClick={()=>setCurrentCategory(cat.name)}>
                 {cat.name}
               </button>
             </li>
@@ -225,7 +225,7 @@ function ThemeToggle({isDarkMode,setIsDarkMode}){
 
   return (
       <div>
-          <button className="btn toggler-mode" onClick={toggleTheme}>
+          <button className="btn button-85 toggler-mode" onClick={toggleTheme}>
               {isDarkMode ? '💡 Mode' : '🌑  Mode'}-toggle
           </button>
           {/* <Fact isDarkMode={isDarkMode} /> */}
